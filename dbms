@@ -1,0 +1,137 @@
+CREATE DATABASE  IF NOT EXISTS `mystore` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `mystore`;
+-- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
+--
+-- Host: localhost    Database: mystore
+-- ------------------------------------------------------
+-- Server version	5.5.24
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `purchase`
+--
+
+DROP TABLE IF EXISTS `purchase`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `purchase` (
+  `Invoice` int(11) NOT NULL,
+  `Pdate` varchar(15) DEFAULT NULL,
+  `Dealer` varchar(45) DEFAULT NULL,
+  `ItemName` varchar(45) DEFAULT NULL,
+  `CompanyName` varchar(45) DEFAULT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  `Rate` double DEFAULT NULL,
+  PRIMARY KEY (`Invoice`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `purchase`
+--
+
+LOCK TABLES `purchase` WRITE;
+/*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
+INSERT INTO `purchase` VALUES (1,'2018-04-09','BalaJi','LAPTOP','ACER',10,30000),(2,'2018-04-09','BalaJi','LAPTOP','ASUS',10,25000),(3,'2018-04-09','BalajiIt','LAPTOP','APPLE INC.',10,100000),(4,'2018-04-09','DellWorld','LAPTOP','DELL',10,25000),(5,'2018-04-09','HpWorld','LAPTOP','HP INC.',10,30000),(6,'2018-04-09','LenWorld','LAPTOP','LENEVO',10,32000),(7,'2018-04-09','BalaJi','MOBILE','BLACKBERRY',10,15000),(8,'2018-04-09','ColWorld','MOBILE','COOLPAD',10,14000),(9,'2018-04-09','GWorld','MOBILE','GFIVE',10,2000),(10,'2018-04-09','MicroWorld','MOBILE','NOKIA',10,3000),(11,'2018-04-09','SamWorld','MOBILE ','SAMSUNG',10,4000),(12,'2018-04-09','AlWorld','PRINTER','ALPS',10,7000),(13,'2018-04-09','AlWorld','PRINTER','ALPS',2,7000),(14,'2018-04-09','HpWorld','PRINTER','HP',10,8000),(15,'2018-04-09','SamWorld','PRINTER','SAMSUNG',10,6000),(16,'2018-04-09','GWorld','MOBILE','GFIVE',5,2000);
+/*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `login`
+--
+
+DROP TABLE IF EXISTS `login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `login` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `login`
+--
+
+LOCK TABLES `login` WRITE;
+/*!40000 ALTER TABLE `login` DISABLE KEYS */;
+INSERT INTO `login` VALUES ('a','b');
+/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sales`
+--
+
+DROP TABLE IF EXISTS `sales`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sales` (
+  `BillNo` int(11) NOT NULL,
+  `BillDate` varchar(20) DEFAULT NULL,
+  `CustomerName` varchar(45) DEFAULT NULL,
+  `ItemName` varchar(45) DEFAULT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  `Rate` double DEFAULT NULL,
+  `TotalAmount` double DEFAULT NULL,
+  PRIMARY KEY (`BillNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sales`
+--
+
+LOCK TABLES `sales` WRITE;
+/*!40000 ALTER TABLE `sales` DISABLE KEYS */;
+INSERT INTO `sales` VALUES (1,'2018-04-09','Ravi','MOBILE',5,2000,10000);
+/*!40000 ALTER TABLE `sales` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stock`
+--
+
+DROP TABLE IF EXISTS `stock`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stock` (
+  `idstock` int(11) NOT NULL AUTO_INCREMENT,
+  `ItemName` varchar(45) DEFAULT NULL,
+  `CompanyName` varchar(45) DEFAULT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idstock`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stock`
+--
+
+LOCK TABLES `stock` WRITE;
+/*!40000 ALTER TABLE `stock` DISABLE KEYS */;
+INSERT INTO `stock` VALUES (10,'LAPTOP','acer',10),(11,'LAPTOP','asus',10),(12,'LAPTOP','apple inc.',10),(13,'LAPTOP','dell',10),(14,'LAPTOP','hp Inc.',10),(15,'LAPTOP','lenevo',10),(16,'MOBILE','blackberry',10),(17,'MOBILE','coolPad',10),(18,'MOBILE','gfive',10),(19,'MOBILE','Nokia',10),(20,'MOBILE ','samsung',10),(21,'PRINTER','alps',12),(22,'PRINTER','hp',10),(23,'PRINTER','samsung',10);
+/*!40000 ALTER TABLE `stock` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-04-10  8:19:02
